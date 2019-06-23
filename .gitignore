@@ -34,3 +34,4 @@ splash**.png
 **/logs
 **.h5
 /images
+.python-version
