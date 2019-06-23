@@ -33,5 +33,5 @@ splash**.png
 /exclude
 **/logs
 **.h5
-/images
+/imagenes
 .python-version
