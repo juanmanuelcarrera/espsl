@@ -21,9 +21,10 @@ class ParkingSpot(Document):
     def check_vehicle(self, vehicle_points):
         vehicle = Polygon(vehicle_points)
         spot = Polygon(self.shape)
+        
         if vehicle.intersects(spot):
             intersection = vehicle.intersection(spot)
-
+            
             # left-most and right-most points of intersection
             left_point = geometry.get_left_point(intersection.boundary.coords)[0]
             right_point = geometry.get_right_point(intersection.boundary.coords)[0]
@@ -40,7 +41,16 @@ class ParkingSpot(Document):
                 (right_point, top_point)
             ])
 
+            final_intersection = [
+                (left_point, top_point), 
+                (left_point, bottom_point),
+                (right_point, bottom_point),
+                (right_point, top_point)
+            ]
+
             #print(self.to_json())
             #print(final_intersection)
             #print(final_intersection.area)
+
+            return final_intersection
         

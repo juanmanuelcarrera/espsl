@@ -5,27 +5,6 @@ import numpy as np
 
 import helpers.geometry as geometry
 
-def sort_points_ttb(points):
-    pts = np.array([list(point) for point in points])
-    return pts[np.argsort(pts[:, 1]), :]
-
-def get_top_point(points):
-    return sort_points_ttb(points)[0]
-
-def get_bottom_point(points):
-    return sort_points_ttb(points)[0]
-
-def sort_points_ltr(points):
-    pts = np.array([list(point) for point in points])
-    return pts[np.argsort(pts[:, 0]), :]
-
-def get_left_point(points):
-    return sort_points_ltr(points)[0]
-
-def get_right_point(points):
-    return sort_points_ltr(points)[-1]
-
-
 class IntersectionDetector:
 	def __init__(self):
 		pass

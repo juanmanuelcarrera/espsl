@@ -16,11 +16,11 @@ class ParkingSpotDetector:
 		img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 		
 		# Region of interest
-		roi = cv2.selectROI(img)
+		#roi = cv2.selectROI(img)
 		#roi = (118, 181, 314, 199)
 		
-		image = image[int(roi[1]):int(roi[1]+roi[3]), int(roi[0]):int(roi[0]+roi[2])]
-		img = img[int(roi[1]):int(roi[1]+roi[3]), int(roi[0]):int(roi[0]+roi[2])]
+		#image = image[int(roi[1]):int(roi[1]+roi[3]), int(roi[0]):int(roi[0]+roi[2])]
+		#img = img[int(roi[1]):int(roi[1]+roi[3]), int(roi[0]):int(roi[0]+roi[2])]
 
 		# Median blur
 		blur = cv2.medianBlur(img, 5)
@@ -93,7 +93,7 @@ class ParkingSpotDetector:
 		
 		for ps in parking_slots:
 			color = random.uniform(0, 255),random.uniform(0, 255),random.uniform(0, 255)
-			#cv2.fillPoly(result, np.int_([ps]), color)
+			cv2.fillPoly(result, np.int_([ps]), color)
 		
 		#alpha = 0.7  # Transparency factor.
 		# Following line overlays transparent rectangle over the image
@@ -108,8 +108,8 @@ class ParkingSpotDetector:
 		#cv2.imshow("Blur", blur)
 		#cv2.imshow("Thresold", thresolded)
 		#cv2.imshow("Edges", edges)
-		#cv2.imshow("Result", result)
+		cv2.imshow("Result", result)
 
-		#cv2.waitKey()
+		cv2.waitKey()
 
 		return parking_slots
